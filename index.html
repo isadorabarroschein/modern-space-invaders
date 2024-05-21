@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Space Invaders | Isadora Barros</title>
+<style>
+    body, html {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        height: 1000;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-size: 14px;
+        background-color:rgb(238, 170, 238);
+    }
+</style>    
+</head>
+<body>
+    <div style= "position: relative"; id="parentDiv">
+        <p 
+            id="scoreContainer"
+            style="
+                position: absolute;
+                z-index: 10;
+                color: white;
+                left: 10px;
+                top: 10px;
+                margin: 0;
+                display: flex;
+
+            "
+        >
+            <span>Pontos>:</span>
+            <span id="scoreEl">0</span>
+        </p>
+        <canvas></canvas>
+        <div
+         id="startScreen"
+        style="
+        
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolut;
+            top: 0;
+            left: 0;
+            right: 0;
+            botton: 0;
+            background: url('imagem/startScreenBackground.png');     
+            background-size: contain;
+            background-repeat: no-repeat;
+
+
+            "
+        >
+            <div style="text-align: center;">
+                <h1 style="color: white;">Space Invaders</h1>
+                <div
+                    id="startButton"
+                    style="
+                        cursor: pointer;
+                        position: relative;
+                        display: inline-block;  
+                    "
+                 >
+
+                 <img src="./imagem/button.png" alt="Start Button">
+                    <span
+                        style="
+                            position: absolute;
+                            color: white;
+                            top:  50px;
+                            left: 50px;
+                            transform: translate(-50%, -50%);
+                        "
+                    >Iniciar</span>
+                </div><!-- FIm do id startButton-->
+            </div>
+        </div><!-- Fim do id startScreen -->
+    </div><!-- Fim do id parentDiv -->
+</body>
+</html> 
