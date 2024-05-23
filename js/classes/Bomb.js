@@ -58,6 +58,14 @@ class Bomb {
         });
     }
 
-
+    class PowerUp {
+    construtor ({position,velocity}) {
+        this.position = position;
+        this.velocity = velocity; 
+        this.radius = 15;
+    
+    }
+    }
+    
 
       
