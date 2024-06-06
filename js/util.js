@@ -21,3 +21,13 @@ onComplete: () => {
 }
 });
 }
+
+function rectangularCollision({rectanglel, rectangle2}){
+    return (
+        rectanglel.position.y + rectnaglel.height >= rectangle2.position.y &&
+        rectangle2.position.x + rectanglel.whidth >= rectangle2.position.x &&
+        rectanglel.position.x + rectanglel.position + rectangle2.whidth
+    );
+}
+
+    
