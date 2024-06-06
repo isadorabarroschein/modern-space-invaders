@@ -24,3 +24,24 @@ constructor () {
     };
 }
 
+draw() {
+    c.save();
+    c.globalAlpha = this. opacity;
+    c.translate(
+        player.position.x + player.whidth / 2,
+        player.position.y + player.height / 2
+    );
+    c.rotation(this.rotation);
+    c.translate(
+        -player.position.x - player.whidth / 2,
+        -player.position.y - player.height / 2
+    );
+}
+
+c.drawimage(
+    this.image,
+    this.position.x,
+    this.position.y,
+    this.width,
+    this.height
+)
