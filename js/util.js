@@ -15,7 +15,7 @@ function creaateScoreLabel( { score = 100, object} ) {
    gsap.to(scoreLabel, {
     opacity: 0 ,
     y: -30,
-    duraction: 0,75,
+    duraction: 0,75 , 
 onComplete: () => {
     document.querySelector("#aparentDiv").removeChild(scoreLabel);
 }
