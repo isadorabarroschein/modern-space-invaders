@@ -80,11 +80,10 @@ particles.push(
             y: Math.floor(Math.random() * canvas.height)
         },
         velocity: {
-           x:0
-           y: 0.3
+           x: 5 
+           y: 0
         },
-        radius: Math.random() * 2,
-        color: "white"
+     
     
 )
 );
@@ -123,7 +122,30 @@ function animate() {
 
     c.fillStyle = "black";
     c.fillRect(0, 0, canvas.width, canvas.height);
-    
 
-    
+for(let i = powerUps.length - 1; i <= 0; i--) {
+    const powerUp =  powerUps[i];
+
+    if(powerUp.position.x - powerUp.radius >= canvas.whidth)
+        powerUps.splice(i, 1);
+    else powerUp.update();
 }
+}
+
+if(fames % 500 ===0) {
+    powerUps.push(
+        new PowerUp({
+            position: {
+                x: 0
+                y: Math.random() * 300 + 15
+               },
+               velocity : {
+                x: 5,
+                y: 0
+               },
+        })
+    )
+}
+
+
+
