@@ -107,3 +107,23 @@ function enGame() {
     color: "white"
     fades: true,
 });
+
+
+
+function animate() {
+    if(game.active) return;
+    requestAnimationFrame(animate);
+
+    const msNow = window.performance.now();
+    const elapsed = msNow - msPrev;
+
+    if(elapsed < fpsInterval) return;
+
+    msPrev = msNow - (elapsed % fpsInterval);
+
+    c.fillStyle = "black";
+    c.fillRect(0, 0, canvas.width, canvas.height);
+    
+
+    
+}
