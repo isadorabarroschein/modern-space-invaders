@@ -202,4 +202,59 @@ particles.forEach((particle, i)=> {
             particle.update();
         }
         });
+
+
+        invaderProjectiles.forEach((invaderProjectile, index)) => {
+            if(
+                invaderProjectiles.position.y + invaderProjectiles.heigth >= canvas.height
+            }{
+                setTimeout(() => {
+                    invaderProjectiles.splice(index, 1);
+                    }, 0);
+                } else invaderProjectiles.update
+            
+                if(
+                    rectangularCollision({
+                        rectangle1: invaderProjectiles,
+                        rectangle2: player
+                    })
+                )
+ for(let i = projectiles.length - 1; i >= 0; i--) {
+    const projectile = projectiles[i];
+
+    for(let j = bombs.length -1; j>= 0; j--) {
+        const bomb = bombs[j];
+
+
+        if(
+            Math.hypot(
+                projectile.position.x - bomb.position.x,
+                projectile.position.y - bomb.position.y
+            ) <
+            bomb.radius + Bombs.radius && 
+            bomb.active
+        ){
+          projectiles.splice(i, 1);
+          projectiles.splice(i, 1);
+          player.powerUp = "Metralhadora";
+          audio.bombs.play();
+
+          setTimeout(() => {
+            player.powerUp = null;
+            }, 5000);
+          }
+        }
+    
+        if(projectile.position.y + particles.radius <= 0) {
+            projectiles.splice(i, 1);
+        }else {
+            projectile.update();
+        }
+        }
+   
+   
+    }
+
+ }            
         
+    
