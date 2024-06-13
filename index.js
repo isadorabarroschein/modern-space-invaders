@@ -179,3 +179,27 @@ function animate() {
             }else bomb.update();
       }
 }
+
+player.upade();
+
+for(let i = player.particles.length - 1; i >= 0; i--) { 
+    const particles = player.particles[i];
+    particles.update();
+     
+    if(particles.opcaity === 0) player.particles[1].splice(i,1);
+}
+
+particles.forEach((particle, i)=> {
+    if(particle.position.y - particle.radius >= canvas.heigth) {
+        particle.position.x =  Marth.random() * canvas.width;
+        particle.position.y = particle.radius;
+    }
+    if(particle.opacity <= 0){
+        setTimeout(() => {
+            particles.splice(i, 1);
+            }, 0);
+        }else{
+            particle.update();
+        }
+        });
+        
