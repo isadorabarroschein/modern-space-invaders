@@ -144,8 +144,38 @@ if(fames % 500 ===0) {
                 y: 0
                },
         })
-    )
+    );
+
+
 }
 
+function animate() {
 
 
+    if (frames x 200 === 0 && bombs.length < 3) { 
+     bombs.push(
+        new Bomb({
+            position: {
+                x: ramdomBetween(Bomb,radius, canvas.whidth - Bomb.radius),
+                y:ramdomBetween(Bomb,radius, canvas.height - Bomb.radius) 
+            },
+            velocity: {
+                x: (Math.random() - 0.5 * 6)
+                y: (Math.random() - 0.5 * 6)
+            },
+            radius: Math.random() * 2,
+            color: "white"
+        })
+    );
+    }
+}
+
+function animate() {
+      for(let i = bombs.length - 1; i >= 0; i --){
+        const bomb = bombs[i];
+
+        if(bomb.opacity <= 0){
+            bombs.splice(i, 1);
+            }else bomb.update();
+      }
+}
