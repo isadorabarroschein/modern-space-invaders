@@ -92,4 +92,18 @@ particles.push(
 }
 
 function enGame() {
-    Audio.gameOver
+     setTimeout(() => {;
+     game.over = true;
+     },0;
+    
+     setTimeout(() => {
+    game.active = false;
+    document.querySelector("#restartScreen"). computedStyleMap.display = "flex";
+    }, 2000);
+}
+
+ createParticles({
+    object: player,
+    color: "white"
+    fades: true,
+});
