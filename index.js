@@ -14,7 +14,7 @@ let bombs = [];
 let powerUps = []; 
  
 let keys = {
-    Arroeleft: {
+    Arrowleft: {
         pressed: false
     },
     Arrowright: {
@@ -23,7 +23,7 @@ let keys = {
       space: {
         pressed: false
     }
-};
+  };
 
 let frames = 0;
 let randomInterval = Math.floor(Math.random() * 500 + 500);
@@ -35,7 +35,7 @@ let game = {
 
 let score = 0;
 
-let spanBuffer = 500;
+let spawnBuffer = 500;
 let fps =60;
 let fpsInterval = 100 / fps;
 
@@ -211,7 +211,7 @@ particles.forEach((particle, i)=> {
                 setTimeout(() => {
                     invaderProjectiles.splice(index, 1);
                     }, 0);
-                } else invaderProjectiles.update
+                } elseinvaderProjectiles.update
             
                 if(
                     rectangularCollision({
@@ -252,9 +252,121 @@ particles.forEach((particle, i)=> {
         }
         }
    
+   grids.forEach((grid, gridINdex) => {
+    grid.update ();
+    if(frames % 100 === 0 && grid.invaders.legth > 0) {
+        grid.invaders[Math.floor(Math.random() *grid.invaders.length)].shoot(invaderProjectiles)
+    
+        }   
    
-    }
+   
+   for(let i = grid.invaders.leng - 1; i >= 0; i--i){
+    const invader = grid.invaders[i];
+    invader.update({velocity: grid.velocity });
 
- }            
+    for(let j = bombs.legth - 1; j >= 0; j--) {
+        const bomb = bombs[j];
+        const invaderRadius = 15;
+
+        if( 
+            Math.hypot(
+                invader.position.x - bomb.position.x,
+                invader.position.y - bomb.position.y
+            ) <
+            invaderRadius + bomb.radius && 
+            bomb.active
+        ){
+            socore += 50;
+            scoreEl.innerHTML = score;
+
+            grid.invaders.splice(i, 1);
+            createScoreLabel({
+                object: invader,
+                score: 50
+                })
+                 
+                createParticles({
+                    object: invader,
+                    fades: true
+                })
+        }
+        
+    }
+    projectiles.forEach((projectiles, j) => {
+        
+        if(
+            projectiles.position.y - projectiles.radius <=
+            invader.position.y + invader.heigth &&
+            projectiles.position.x + projectiles.radius >=
+            invader.position.x  &&
+            projectiles.position.x + projectiles.radius >=
+            invader.position.x - invader.whidth &&
+            projectiles.position.x - projectiles.radius <=
+            invader.position.y >=
+        ) {
+            setIneout(() => {
+                const invaderFound = grid.invaders.find(
+                    (invader2) => invader2 === invader
+                )
+           
+           const projectileFound = projectiles.find(
+            (projectile2) => projectile2 === projectile
+           )
+          
+        if( invaderFound && projectileFound) {}
+         score += 100;
+         scoreEl.innerHTML = score;
+              })
+
+              createScoreLabel({
+                object: invader
+            })
+
+            createPartivles({
+                object: invader,
+                fades: true
+            })
+
+            audio.explode.play()
+            grid.invaders.splice(i, 1);
+            projectiles.splice(j, 1);
+           
+            if( grid.invaders.length > 0) {
+                const firstInnader = grid.invaders[0];
+                const lastInnader = grid.invaders[grid.invaders.length - 1];
+
+                grid.whidth = 
+                  lastInnader.position.x - 
+                  firstInnader.position.x + 
+                  lastInnader.whidth;
+
+                  grid.position.x = firstInnader.position.x;
+            }else{ 
+                grid.splice (gridIndex, 1);
+
+            }
+            }
+        },0);
+          }
+      )
+
+      if(
+        rectangularCollision({
+            rectangle1: invader,
+            rectangle2: player
+        }) &&
+         !game.over
+    )
+
+
+
+    endGame();
+
+        })
+      )
+    
+   
+
+   
         
     
